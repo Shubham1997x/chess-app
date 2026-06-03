@@ -16,7 +16,7 @@ export function TournamentEmptyState({
         No tournaments match
       </p>
       <p className="max-w-sm text-sm text-muted-foreground">
-        Try a different search or filter, or reset to see all events.
+        Try a different filter or reset to see all events.
       </p>
       <Button type="button" variant="outline" onClick={onResetFilters}>
         Reset filters

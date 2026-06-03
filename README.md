@@ -64,6 +64,3 @@ The UI **fetches** `/api/tournaments` instead of importing JSON on the page beca
 
 If you see **Could not load tournaments**, stop the dev server, delete `.next`, and run `npm run dev` again.
 
-## Deploy (optional)
-
-Deploy to [Vercel](https://vercel.com) with no extra environment variables.

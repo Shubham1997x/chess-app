@@ -59,11 +59,3 @@ export function sortTournamentsForDisplay(
     )
   })
 }
-
-export function playersProgress(
-  playersJoined: number,
-  maxPlayers: number,
-): number {
-  if (maxPlayers <= 0) return 0
-  return Math.min(100, Math.round((playersJoined / maxPlayers) * 100))
-}

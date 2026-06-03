@@ -1,5 +1,5 @@
 import type { Metadata } from "next"
-import { Geist, Geist_Mono, Noto_Serif, Public_Sans } from "next/font/google"
+import { Geist, Noto_Serif, Public_Sans } from "next/font/google"
 
 import "./globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
@@ -20,11 +20,6 @@ const fontSans = Geist({
   variable: "--font-sans",
 })
 
-const fontMono = Geist_Mono({
-  subsets: ["latin"],
-  variable: "--font-mono",
-})
-
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -37,7 +32,6 @@ export default function RootLayout({
       className={cn(
         "antialiased",
         fontSans.variable,
-        fontMono.variable,
         "font-serif",
         notoSerif.variable,
         publicSansHeading.variable,

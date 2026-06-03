@@ -30,8 +30,13 @@ export function TournamentRow({
       <td className="px-4 py-3">
         <span className="font-medium text-foreground">{tournament.name}</span>
       </td>
-      <td className="px-4 py-3 text-sm text-foreground">
-        {tournament.timeControl}
+      <td className="px-4 py-3">
+        <Badge
+          variant="secondary"
+          className="rounded-md border border-border bg-muted px-2 py-0.5 text-xs normal-case tracking-normal"
+        >
+          {tournament.timeControl}
+        </Badge>
       </td>
       <td className="px-4 py-3 text-sm text-muted-foreground">
         <time dateTime={tournament.startTime}>
@@ -44,6 +49,7 @@ export function TournamentRow({
       <td className="px-4 py-3">
         <Badge
           variant={tournament.status === "live" ? "default" : "outline"}
+          className="rounded-md px-2 py-0.5 text-xs normal-case tracking-normal"
         >
           {tournament.status === "live" ? "Live" : "Upcoming"}
         </Badge>
