@@ -7,7 +7,6 @@ import {
 } from "@/lib/tournaments"
 import type { Tournament } from "@/types/tournament"
 import { cn } from "@/lib/utils"
-import { CircleNotchIcon } from "@phosphor-icons/react"
 
 type TournamentRowProps = {
   tournament: Tournament
@@ -124,9 +123,6 @@ export function TournamentRow({
               "disabled:border-primary/50 disabled:bg-primary/25 disabled:text-primary-foreground",
           )}
         >
-          {isJoining ? (
-            <CircleNotchIcon className="size-4 animate-spin" aria-hidden />
-          ) : null}
           <span>{joinLabel}</span>
         </Button>
       </td>
