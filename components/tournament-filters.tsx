@@ -34,13 +34,13 @@ export function TournamentFilters({
   const valueSelectId = "tournament-filter-value"
 
   return (
-    <div className="flex flex-col gap-4 sm:flex-row sm:flex-wrap sm:items-end">
+    <div className="flex flex-col gap-5 sm:flex-row sm:flex-wrap sm:items-end">
       <fieldset className="min-w-0 space-y-2">
-        <legend className="text-xs font-semibold tracking-wider text-muted-foreground uppercase">
+        <legend className="text-sm font-medium text-foreground">
           Filter by
         </legend>
         <div
-          className="inline-flex rounded-md border border-border p-0.5"
+          className="inline-flex rounded-lg border border-border bg-muted/50 p-1"
           role="radiogroup"
           aria-label="Filter type"
         >
@@ -48,10 +48,10 @@ export function TournamentFilters({
             <label
               key={value}
               className={cn(
-                "cursor-pointer rounded-sm px-3 py-2 text-xs font-medium transition-colors",
+                "cursor-pointer rounded-lg px-4 py-2 text-sm font-medium transition-colors",
                 filterType === value
-                  ? "bg-primary text-primary-foreground"
-                  : "text-muted-foreground hover:text-foreground",
+                  ? "bg-primary text-primary-foreground shadow-sm"
+                  : "text-muted-foreground hover:bg-muted hover:text-foreground",
               )}
             >
               <input
@@ -68,10 +68,10 @@ export function TournamentFilters({
         </div>
       </fieldset>
 
-      <div className="min-w-40 flex-1 space-y-2 sm:max-w-xs">
+      <div className="min-w-44 flex-1 space-y-2 sm:max-w-xs">
         <label
           htmlFor={valueSelectId}
-          className="text-xs font-semibold tracking-wider text-muted-foreground uppercase"
+          className="text-sm font-medium text-foreground"
         >
           {filterType === "timeControl" ? "Time control" : "Status"}
         </label>
@@ -81,7 +81,7 @@ export function TournamentFilters({
         >
           <SelectTrigger
             id={valueSelectId}
-            className="h-10 w-full border border-input bg-background px-3"
+            className="h-11 w-full rounded-lg border border-input bg-background px-3"
             aria-label={
               filterType === "timeControl"
                 ? "Filter by time control"

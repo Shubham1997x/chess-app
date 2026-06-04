@@ -91,13 +91,16 @@ export function TournamentList() {
   if (loadState === "error") {
     return (
       <div
-        className="flex flex-col items-center gap-4 rounded-lg border border-border bg-card px-6 py-12 text-center"
+        className="content-panel flex flex-col items-center gap-4 px-6 py-14 text-center"
         role="alert"
       >
-        <p className="text-sm text-muted-foreground">
-          Could not load tournaments. Please try again.
+        <p className="text-base font-medium text-foreground">
+          Could not load tournaments
         </p>
-        <Button type="button" variant="outline" onClick={fetchTournaments}>
+        <p className="max-w-sm text-sm text-muted-foreground">
+          Check your connection and try again.
+        </p>
+        <Button type="button" variant="default" onClick={fetchTournaments}>
           Retry
         </Button>
       </div>
@@ -105,17 +108,33 @@ export function TournamentList() {
   }
 
   return (
-    <div className="space-y-6">
-      <TournamentFilters
-        filterType={filterType}
-        filterValue={filterValue}
-        onFilterTypeChange={handleFilterTypeChange}
-        onFilterValueChange={setFilterValue}
-      />
+    <div className="space-y-4">
+      <div className="content-panel p-5 sm:p-6">
+        <h2 className="mb-4 text-sm font-medium text-foreground">
+          Find a tournament
+        </h2>
+        <TournamentFilters
+          filterType={filterType}
+          filterValue={filterValue}
+          onFilterTypeChange={handleFilterTypeChange}
+          onFilterValueChange={setFilterValue}
+        />
+      </div>
 
-      <p className="sr-only" aria-live="polite">
-        {statusMessage}
-      </p>
+      <div
+        className="flex flex-wrap items-center justify-between gap-2 px-1"
+        aria-live="polite"
+        aria-atomic="true"
+      >
+        <p className="text-sm text-muted-foreground">
+          Showing{" "}
+          <span className="font-semibold text-foreground">
+            {filtered.length}
+          </span>{" "}
+          {filtered.length === 1 ? "tournament" : "tournaments"}
+        </p>
+        <p className="sr-only">{statusMessage}</p>
+      </div>
 
       {filtered.length === 0 ? (
         <TournamentEmptyState onResetFilters={resetFilters} />

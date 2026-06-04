@@ -47,6 +47,14 @@ export function formatStartTime(iso: string): string {
   }).format(new Date(iso))
 }
 
+export function playersProgress(
+  playersJoined: number,
+  maxPlayers: number,
+): number {
+  if (maxPlayers <= 0) return 0
+  return Math.min(100, Math.round((playersJoined / maxPlayers) * 100))
+}
+
 export function sortTournamentsForDisplay(
   tournaments: Tournament[],
 ): Tournament[] {

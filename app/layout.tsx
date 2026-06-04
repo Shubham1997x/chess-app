@@ -30,13 +30,17 @@ export default function RootLayout({
       lang="en"
       suppressHydrationWarning
       className={cn(
-        "antialiased",
+        "dark antialiased",
         fontSans.variable,
-        "font-serif",
+        "font-sans",
         notoSerif.variable,
         publicSansHeading.variable,
       )}
     >
+      <head>
+        <link rel="icon" href="/logo.png" type="image/png" sizes="32x32" />
+        <link rel="apple-touch-icon" href="/logo.png" type="image/png" />
+      </head>
       <body>
         <ThemeProvider>{children}</ThemeProvider>
       </body>
